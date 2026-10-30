@@ -1,0 +1,5 @@
+1. What does this system do, for whom, and how is it deployed?
+2. List the main modules and how they depend on each other.
+3. Trace a request for /orders/{id} from entry point to database.
+4. Where is configuration read, and which settings matter most?
+5. Which parts look oldest or riskiest, and why?

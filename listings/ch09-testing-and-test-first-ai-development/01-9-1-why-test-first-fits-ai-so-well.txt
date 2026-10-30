@@ -1,0 +1,7 @@
+Spec: parse_duration("1h30m") -> 5400 seconds. Accept h, m, s units in
+any order, at most once each. Reject empty strings, negatives, unknown
+units and repeated units with ValueError.
+
+Step 1 only: write pytest tests in tests/test_duration.py covering
+valid inputs, each rejection rule and boundary cases. Do not write
+the implementation. Show me the tests.

@@ -1,0 +1,10 @@
+Change: Upgrade web framework 4.2 -> 5.0 in order-service
+Reason: 4.2 reaches end of support; security patches stop in Q1.
+Risk: Medium. Breaking changes in middleware and settings (listed).
+Testing: Full suite green; staging soak 48h; load test at 2x peak.
+Rollback: Redeploy previous image (tag v3.18.2); no DB changes.
+AI assistance: Upgrade plan and code changes drafted by Claude Code;
+  all changes reviewed by J. Santos and M. Reyes.
+AI-specific checks: Verified every changed API against the official
+  migration guide; no new dependencies added.
+Approver: CAB, standard window.

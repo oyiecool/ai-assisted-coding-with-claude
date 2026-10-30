@@ -1,0 +1,8 @@
+Work in plan mode; do not change any files except ONBOARDING.md.
+1. What does this system do, for whom, and how is it deployed?
+2. Main modules and their dependencies.
+3. Trace one real request end to end, citing file:line.
+4. How to run it locally and run the tests.
+5. The riskiest or most confusing areas, and why.
+Write the answers to ONBOARDING.md. Mark every claim you could not
+confirm from the code as UNVERIFIED.

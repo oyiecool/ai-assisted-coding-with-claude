@@ -1,0 +1,10 @@
+Goal: Monthly active customers per region for the last 12 months, for
+the finance dashboard.
+Context: PostgreSQL 16. Tables: customers(id, region_id, created_at),
+orders(id, customer_id, created_at, status). ~40M orders. Index on
+orders(customer_id, created_at). "Active" = at least one order with
+status 'completed' in that calendar month (UTC).
+Constraints: Single read-only query, no temp tables. Must run under 30s
+on the replica. Months with zero active customers must still appear.
+Done when: Query plus EXPLAIN ANALYZE output from staging, and a check
+against a hand-computed figure for one region and month.

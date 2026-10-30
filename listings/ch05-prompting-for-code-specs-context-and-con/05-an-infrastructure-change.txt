@@ -1,0 +1,9 @@
+Goal: Add an S3 bucket for invoice PDFs in the billing stack.
+Context: Terraform 1.9, AWS provider 5.x, module layout in infra/billing/.
+Follow the pattern in infra/billing/reports_bucket.tf.
+Constraints: Private, block all public access, SSE-KMS with the existing
+billing key, versioning on, lifecycle to Glacier after 365 days,
+mandatory tags (owner, cost-centre, data-class=confidential).
+Do NOT run terraform apply. Run terraform fmt, validate and plan only.
+Done when: Plan output shows exactly one new bucket and its policies,
+no changes or deletions to existing resources.

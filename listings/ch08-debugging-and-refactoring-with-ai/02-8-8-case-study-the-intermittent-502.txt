@@ -1,0 +1,4 @@
+Evidence attached: LB logs (sample of 40 errors), gunicorn config,
+LB idle timeout 60s, p99 latency 1.8s. Errors only under load,
+roughly 0.5%. List hypotheses ranked by likelihood with evidence for
+and against, and the cheapest test for each.

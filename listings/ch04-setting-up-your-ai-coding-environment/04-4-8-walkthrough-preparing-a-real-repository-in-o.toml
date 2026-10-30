@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "S", "UP"]   # S = bandit security rules
+
+[tool.mypy]
+python_version = "3.12"
+strict = false
+
+[[tool.mypy.overrides]]
+module = "src.new_module.*"
+strict = true

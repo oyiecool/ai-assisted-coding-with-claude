@@ -1,0 +1,16 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=rulegray, line width=0.7pt, rounded corners=3pt, minimum width=4.3cm, minimum height=1.25cm, align=center, font=\sffamily\small},
+  hot/.style={box, draw=accent, line width=1.4pt, fill=accentlight},
+  arr/.style={-{Stealth[length=2.2mm]}, draw=rulegray, line width=0.8pt}]
+\node[box] (g1) at (0,0) {\textbf{1. Secret scan}\\[1pt]{\footnotesize\color{muted}pre-commit and CI}};
+\node[box] (g2) at (5.2,0) {\textbf{2. SAST}\\[1pt]{\footnotesize\color{muted}static code analysis}};
+\node[box] (g3) at (10.4,0) {\textbf{3. Dependency scan}\\[1pt]{\footnotesize\color{muted}SCA, licences, SBOM}};
+\node[box] (g4) at (10.4,-2.4) {\textbf{4. Tests}\\[1pt]{\footnotesize\color{muted}full suite, real output}};
+\node[box] (g5) at (5.2,-2.4) {\textbf{5. Human review}\\[1pt]{\footnotesize\color{muted}named approver}};
+\node[hot] (g6) at (0,-2.4) {\textbf{6. Protected merge}\\[1pt]{\footnotesize\color{muted}branch rules enforced}};
+\draw[arr] (g1) -- (g2); \draw[arr] (g2) -- (g3); \draw[arr] (g3) -- (g4); \draw[arr] (g4) -- (g5); \draw[arr] (g5) -- (g6);
+\end{tikzpicture}
+\caption{The six security gates every change passes.}
+\end{figure}

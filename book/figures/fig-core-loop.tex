@@ -1,0 +1,18 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=rulegray, line width=0.7pt, rounded corners=3pt, minimum width=2.6cm, minimum height=1.25cm, align=center, font=\sffamily\small},
+  hot/.style={box, draw=accent, line width=1.4pt, fill=accentlight},
+  arr/.style={-{Stealth[length=2.2mm]}, draw=rulegray, line width=0.8pt},
+  lab/.style={font=\sffamily\footnotesize, text=muted}]
+\node[box] (plan) at (0,0) {\textbf{Plan}\\[1pt]{\footnotesize\color{muted}agree approach}};
+\node[box] (gen) at (3.35,0) {\textbf{Generate}\\[1pt]{\footnotesize\color{muted}small steps}};
+\node[box] (rev) at (6.7,0) {\textbf{Review}\\[1pt]{\footnotesize\color{muted}read every line}};
+\node[box] (test) at (10.05,0) {\textbf{Test}\\[1pt]{\footnotesize\color{muted}show real output}};
+\node[hot] (commit) at (13.4,0) {\textbf{Commit}\\[1pt]{\footnotesize\color{muted}explainable only}};
+\draw[arr] (plan) -- (gen); \draw[arr] (gen) -- (rev); \draw[arr] (rev) -- (test); \draw[arr] (test) -- (commit);
+\draw[arr] ($(rev.south)+(-0.3,0)$) -- ++(0,-0.8) -| node[lab, below, pos=0.25]{changes requested} ($(gen.south)+(0.3,0)$);
+\draw[arr] (test.south) -- ++(0,-2.3) -| node[lab, above, pos=0.2]{tests fail} ($(gen.south)+(-0.3,0)$);
+\end{tikzpicture}
+\caption{The core loop: five steps and two loop-backs.}
+\end{figure}

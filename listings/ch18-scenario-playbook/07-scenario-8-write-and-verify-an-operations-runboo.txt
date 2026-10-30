@@ -1,0 +1,6 @@
+Draft RUNBOOK-tls-renewal.md using docs/runbook-template.md.
+Sources: our cert inventory (certs.yml), certwatch (tools/certwatch),
+the deploy script and last year's renewal ticket (attached).
+Rules: every command must be copy-pasteable and must exist in this
+repo or on our standard image. Mark steps that change production with
+[CHANGE] and steps needing approval with [APPROVAL]. Include rollback.

@@ -1,0 +1,2 @@
+My function returns 0 for every file. Do not fix it. Ask me questions
+that help me trace the loop by hand, one at a time.

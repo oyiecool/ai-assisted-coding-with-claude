@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[a4paper,margin=0pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{Inter}[UprightFont=*,BoldFont=* SemiBold,ItalicFont=* Italic,BoldItalicFont=* SemiBold Italic]
+\setmonofont{DejaVu Sans Mono}
+\newfontfamily\displayfont{Inter Display}[UprightFont=* Bold,BoldFont=* ExtraBold]
+\newfontfamily\displaylight{Inter Display}[UprightFont=* Light]
+\usepackage{amssymb}
+\usepackage{xcolor}
+\definecolor{navy}{HTML}{0F1B2D}
+\definecolor{navy2}{HTML}{16263D}
+\definecolor{panel}{HTML}{1C2E48}
+\definecolor{teal}{HTML}{2BB3BC}
+\definecolor{amber}{HTML}{F2A93B}
+\definecolor{soft}{HTML}{A9B6C8}
+\definecolor{dim}{HTML}{3A4E6B}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\hyphenpenalty=10000 \exhyphenpenalty=10000
+\begin{document}
+% ---------------- FRONT COVER ----------------
+\begin{tikzpicture}[remember picture,overlay]
+\fill[navy] (current page.south west) rectangle (current page.north east);
+% faint dot grid
+\foreach \x in {0,...,27} \foreach \y in {0,...,40}
+  \fill[navy2] ($(current page.south west)+(\x*0.78cm+0.4cm,\y*0.78cm+0.4cm)$) circle (0.6pt);
+% editor panel motif
+\coordinate (P) at ($(current page.north west)+(5.2cm,-3.2cm)$);
+\fill[panel, rounded corners=7pt] (P) rectangle ++(13.6cm,-11.2cm);
+\fill[navy2, rounded corners=7pt] (P) rectangle ++(13.6cm,-0.95cm);
+\fill[navy2] ($(P)+(0,-0.6cm)$) rectangle ++(13.6cm,-0.35cm);
+\foreach \i/\c in {0/dim,1/dim,2/dim} \fill[\c] ($(P)+(0.6cm+\i*0.45cm,-0.48cm)$) circle (0.11cm);
+\node[anchor=west, font=\ttfamily\footnotesize, text=soft] at ($(P)+(2.2cm,-0.48cm)$) {claude \textgreater{} plan $\rightarrow$ generate $\rightarrow$ review $\rightarrow$ test};
+% code lines: y-offset / indent / length / colour / gutter
+\foreach \n/\ind/\len/\col/\g in {
+  1/0/5.2/soft/{},2/0.6/7.8/dim/{},3/0.6/4.1/dim/{},4/1.2/6.6/dim/{},
+  5/1.2/3.2/teal/{+},6/1.2/8.4/teal/{+},7/1.8/5.6/teal/{+},8/1.2/2.4/teal/{+},
+  9/0.6/6.9/dim/{},10/0/1.6/dim/{},11/0/4.8/soft/{},12/0.6/7.2/dim/{},
+  13/0.6/5.0/amber/{\textbullet},14/1.2/6.2/amber/{\textbullet},15/0.6/3.4/dim/{},16/0/2.2/dim/{}}{
+  \node[font=\ttfamily\scriptsize, text=dim, anchor=east] at ($(P)+(0.85cm,-0.95cm-\n*0.6cm)$) {\n};
+  \node[font=\ttfamily\scriptsize\bfseries, text=\col] at ($(P)+(1.15cm,-0.95cm-\n*0.6cm)$) {\g};
+  \fill[\col, rounded corners=1.2pt] ($(P)+(1.55cm+\ind cm,-0.95cm-\n*0.6cm+0.09cm)$) rectangle ++(\len cm,-0.18cm);
+}
+% review badge
+\fill[amber, rounded corners=3pt] ($(P)+(9.3cm,-8.65cm)$) rectangle ++(3.7cm,-0.7cm);
+\node[font=\sffamily\scriptsize\bfseries, text=navy] at ($(P)+(11.15cm,-9.0cm)$) {HUMAN REVIEW \checkmark};
+% title block
+\node[anchor=north west, text width=17cm, align=left] at ($(current page.north west)+(2.2cm,-16.6cm)$) {%
+  {\color{amber}\rule{2.6cm}{2.2pt}}\\[9mm]
+  {\displayfont\fontsize{50}{56}\selectfont\color{white} AI-Assisted\\Coding\\with\hspace{0.27em}Claude}\\[9mm]
+  {\displaylight\fontsize{17}{23}\selectfont\color{soft} A practical guide for developers, learners\\and the leaders who govern them}};
+\node[anchor=south west, font=\sffamily\large\bfseries, text=white] at ($(current page.south west)+(2.2cm,2.4cm)$) {Ronald Allan V. Tomimbang};
+\node[anchor=south east, font=\sffamily\scriptsize, text=soft] at ($(current page.south east)+(-2.2cm,2.5cm)$) {FIRST EDITION};
+\end{tikzpicture}
+\newpage
+% ---------------- BACK COVER ----------------
+\begin{tikzpicture}[remember picture,overlay]
+\fill[navy] (current page.south west) rectangle (current page.north east);
+\foreach \x in {0,...,27} \foreach \y in {0,...,40}
+  \fill[navy2] ($(current page.south west)+(\x*0.78cm+0.4cm,\y*0.78cm+0.4cm)$) circle (0.6pt);
+\node[anchor=north west, text width=16.6cm, align=left] at ($(current page.north west)+(2.2cm,-2.6cm)$) {%
+  {\color{amber}\rule{2.6cm}{2.2pt}}\\[8mm]
+  {\displayfont\fontsize{24}{30}\selectfont\color{white} Ship faster without shipping worse.}\\[7mm]
+  {\sffamily\fontsize{11.5}{17.5}\selectfont\color{soft}
+  AI did not replace programmers. It changed what a programmer spends the day doing. Less time goes to typing; more goes to deciding what to build, explaining it precisely, and proving that what came back is correct, safe and maintainable.\par\vspace{3mm}
+  This book shows how to do that well with Claude and Claude Code, from the first prompt to a governed production change. It treats AI-generated code the way a seasoned engineer treats any change to a production system: specified, reviewed, tested, approved and owned by a person.\par}
+  \vspace{9mm}
+  {\sffamily\small\bfseries\color{amber} INSIDE YOU WILL LEARN HOW TO}\par\vspace{3mm}
+  {\sffamily\fontsize{10.5}{16}\selectfont\color{white}
+  \begin{itemize}\setlength{\itemsep}{1.5pt}\setlength{\leftmargin}{1.2em}
+  \item[\color{teal}\textbullet] Brief an AI like a new colleague and get the right code the first time
+  \item[\color{teal}\textbullet] Run agentic workflows in Claude Code with plans, permissions, skills and hooks
+  \item[\color{teal}\textbullet] Debug, refactor and test with evidence instead of plausible guesses
+  \item[\color{teal}\textbullet] Close the new security gaps: hallucinated packages, prompt injection, leaked secrets
+  \item[\color{teal}\textbullet] Govern AI-assisted change with policy, managed settings and change control
+  \item[\color{teal}\textbullet] Learn to code with AI as a tutor, not a ghostwriter
+  \end{itemize}}
+  \vspace{4mm}
+  {\sffamily\fontsize{10}{15}\selectfont\color{soft}
+  With worked examples, case studies, checklists, templates and a full capstone project, for working developers, learners and the leads who govern them.\par}
+};
+% author panel
+\fill[panel, rounded corners=6pt] ($(current page.south west)+(2.2cm,4.6cm)$) rectangle ++(16.6cm,4.9cm);
+\fill[teal] ($(current page.south west)+(2.2cm,4.6cm)$) rectangle ++(0.12cm,4.9cm);
+\node[anchor=north west, text width=15.4cm, align=left] at ($(current page.south west)+(2.85cm,9.05cm)$) {%
+  {\sffamily\small\bfseries\color{amber} ABOUT THE AUTHOR}\par\vspace{2.5mm}
+  {\sffamily\fontsize{10}{15}\selectfont\color{white}
+  \textbf{Ronald Allan V. Tomimbang} is a Vulnerability Remediation Engineer at Eze Castle Integration, Inc. He previously managed Unix and enterprise systems at the Asian Development Bank and, before that, ran external and internal servers as IT manager of a Philippine online classifieds site. He is an advocate of IT governance, policy and change management, IT ethics and cyber resilience in the age of AI.\par}};
+\node[anchor=south west, font=\sffamily\scriptsize\bfseries, text=soft] at ($(current page.south west)+(2.2cm,2.2cm)$) {SOFTWARE ENGINEERING \quad·\quad ARTIFICIAL INTELLIGENCE \quad·\quad IT GOVERNANCE};
+\node[anchor=south east, font=\sffamily\scriptsize, text=soft] at ($(current page.south east)+(-2.2cm,2.2cm)$) {AI-Assisted Coding with Claude};
+\end{tikzpicture}
+\end{document}

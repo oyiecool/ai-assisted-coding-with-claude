@@ -1,0 +1,6 @@
+Write characterisation tests for shipping_cost() in legacy/shipping.py.
+Record what it returns TODAY for a wide table of inputs: weights from
+0 to 70 kg including boundaries, every zone, express on and off, and
+invalid values (negative weight, unknown zone).
+Do not change shipping.py. List any results that look like bugs
+separately so a human can decide.

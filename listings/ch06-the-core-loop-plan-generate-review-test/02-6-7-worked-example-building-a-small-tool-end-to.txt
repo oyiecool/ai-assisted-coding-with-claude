@@ -1,0 +1,13 @@
+Goal: CLI tool certwatch that reads hosts from a file (one host[:port]
+per line, # comments allowed), connects over TLS, and reports days to
+expiry. Exit 1 if any cert expires within --days (default 21) or any
+host fails. Output: a table to stdout, or JSON with --json.
+
+Constraints: Python 3.12, standard library only (ssl, socket, argparse,
+json, datetime). 5-second connect timeout per host. Hosts checked
+concurrently with a thread pool of max 16. No network access in tests.
+
+Done when: unit tests cover parsing, threshold logic, timeouts and
+JSON output using a fake connector; make check passes.
+
+Propose a module layout and test list. Wait for approval.

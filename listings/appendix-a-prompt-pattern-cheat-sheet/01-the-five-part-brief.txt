@@ -1,0 +1,5 @@
+Goal:        <outcome + why>
+Context:     <files, current behaviour, environment>
+Constraints: <versions, deps allowed, performance, security, scope>
+Done when:   <tests, checks, output format>
+Process:     <ask questions first | plan and wait | small steps>

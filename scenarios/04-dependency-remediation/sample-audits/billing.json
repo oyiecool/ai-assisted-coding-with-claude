@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    {"name": "requests", "version": "2.31.0", "vulns": [
+      {"id": "GHSA-9wx4-h78v-vm56", "aliases": ["CVE-2024-35195"], "fix_versions": ["2.32.0"], "description": "Session verify=False persists for the connection pool."}
+    ]},
+    {"name": "jinja2", "version": "3.1.2", "vulns": [
+      {"id": "GHSA-h5c8-rqwp-cp95", "aliases": ["CVE-2024-22195"], "fix_versions": ["3.1.3"], "description": "xmlattr filter accepts keys with spaces."},
+      {"id": "GHSA-h75v-3vvj-5mfj", "aliases": ["CVE-2024-34064"], "fix_versions": ["3.1.4"], "description": "xmlattr filter accepts keys with other characters."}
+    ]},
+    {"name": "flask", "version": "3.0.3", "vulns": []}
+  ],
+  "fixes": []
+}

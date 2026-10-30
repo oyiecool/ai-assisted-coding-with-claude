@@ -1,0 +1,24 @@
+# .github/workflows/ai-review.yml  (sketch: verify flags against current docs)
+name: ai-review
+on: pull_request
+permissions:
+  contents: read
+  pull-requests: write          # only to post the comment
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Run review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          git diff origin/${{ github.base_ref }}...HEAD > pr.diff
+          claude -p "Review pr.diff against CLAUDE.md and docs/review.md.
+            Report real issues only, with file:line, severity and fix." \
+            --permission-mode plan \
+            --allowedTools "Read,Grep,Glob" > review.md
+      - name: Post comment
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh pr comment ${{ github.event.number }} --body-file review.md

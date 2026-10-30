@@ -1,0 +1,5 @@
+Evidence: 5 invoices attached with expected (finance) and actual totals.
+All differ by exactly 0.01. Totals are computed in src/billing/totals.py.
+Task: List 3 hypotheses ranked by likelihood, with evidence for and
+against each. Then write a failing test that reproduces invoice #2.
+Do not change totals.py yet.

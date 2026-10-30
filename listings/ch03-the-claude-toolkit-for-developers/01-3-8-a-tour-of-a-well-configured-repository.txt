@@ -1,0 +1,18 @@
+my-service/
+├── CLAUDE.md                     # short overview, commands, rules
+├── .claude/
+│   ├── settings.json             # team permissions (committed)
+│   ├── settings.local.json       # personal overrides (git-ignored)
+│   ├── rules/
+│   │   └── api.md                # conventions for src/api/
+│   ├── skills/
+│   │   ├── db-migration/SKILL.md
+│   │   └── release/SKILL.md
+│   ├── agents/
+│   │   └── security-reviewer.md  # subagent definition
+│   └── hooks/
+│       └── format.sh
+├── docs/
+│   ├── architecture.md           # referenced from CLAUDE.md
+│   └── review.md                 # review checklist
+└── src/ ...

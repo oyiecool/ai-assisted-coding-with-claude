@@ -1,0 +1,2 @@
+Give me a 10-line summary of this repository: purpose, main modules,
+how to run tests. Do not change any files.

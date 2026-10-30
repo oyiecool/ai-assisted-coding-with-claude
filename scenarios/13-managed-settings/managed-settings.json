@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(terraform apply *)",
+      "Bash(kubectl delete *)"
+    ],
+    "disableBypassPermissionsMode": "disable"
+  }
+}

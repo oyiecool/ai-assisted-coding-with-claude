@@ -1,0 +1,93 @@
+\usepackage[a4paper,inner=26mm,outer=22mm,top=26mm,bottom=28mm,headsep=9mm,footskip=12mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{Inter}[UprightFont=*,BoldFont=* SemiBold,ItalicFont=* Italic,BoldItalicFont=* SemiBold Italic]
+\setmonofont{DejaVu Sans Mono}[Scale=0.84]
+\newfontfamily\displayfont{Inter Display}[UprightFont=* Bold,BoldFont=* ExtraBold]
+\usepackage{newunicodechar}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{−}{\ensuremath{-}}
+\usepackage{amssymb,amsmath}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{0E7C86}
+\definecolor{accentlight}{HTML}{E4F2F3}
+\definecolor{rulegray}{HTML}{8A94A3}
+\definecolor{muted}{HTML}{5B6573}
+\definecolor{ink}{HTML}{1A2433}
+\definecolor{codebg}{HTML}{F4F6F8}
+\definecolor{navy}{HTML}{0F1B2D}
+\definecolor{amber}{HTML}{F2A93B}
+\usepackage{microtype}
+\usepackage{setspace}\setstretch{1.08}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5.5pt plus 1pt}
+\emergencystretch=3em
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.25}}
+\setlength{\LTpre}{8pt}\setlength{\LTpost}{8pt}
+\usepackage{enumitem}
+\setlist{itemsep=2pt,topsep=4pt}
+\providecommand{\tightlist}{\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\usepackage{caption}
+\captionsetup{font={small,sf},labelfont={bf,color=accent},textfont={color=muted},justification=centering}
+\usepackage{fvextra}
+\fvset{breaklines,breakanywhere,fontsize=\small,breaksymbolleft={}}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{codebox}{breakable,enhanced,colback=codebg,colframe=codebg,boxrule=0pt,
+  borderline west={2.2pt}{0pt}{accent},arc=1.5pt,left=9pt,right=6pt,top=5pt,bottom=5pt,
+  before skip=7pt,after skip=9pt}
+% Headings
+\usepackage{titlesec}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{0}
+\titleformat{\chapter}[display]
+  {\sffamily\color{ink}}
+  {\color{accent}\small\bfseries\MakeUppercase{\chaptertitlename}\ \thechapter}
+  {6pt}
+  {\displayfont\fontsize{26}{31}\selectfont\raggedright}
+  [\vspace{6pt}{\color{accent}\titlerule[1.2pt]}]
+\titleformat{name=\chapter,numberless}[display]
+  {\sffamily\color{ink}}{}{0pt}
+  {\displayfont\fontsize{26}{31}\selectfont\raggedright}
+  [\vspace{6pt}{\color{accent}\titlerule[1.2pt]}]
+\titlespacing*{\chapter}{0pt}{20pt}{26pt}
+\titleformat{\section}{\sffamily\large\bfseries\color{ink}\raggedright}{}{0pt}{}
+\titlespacing*{\section}{0pt}{16pt}{5pt}
+\titleformat{\subsection}{\sffamily\normalsize\bfseries\color{accent}\raggedright}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{11pt}{3pt}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries\color{muted}}{}{0pt}{}
+\titleformat{\part}[display]{\centering\sffamily\color{ink}}
+  {\color{accent}\large\bfseries PART \thepart}{14pt}{\displayfont\fontsize{34}{40}\selectfont}
+\titleformat{name=\part,numberless}[display]{\centering\sffamily\color{ink}}
+  {}{0pt}{\displayfont\fontsize{34}{40}\selectfont}
+\newcommand{\bookpart}[1]{\part*{#1}}
+% TOC look
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\displayfont\fontsize{26}{31}\selectfont\color{ink}}
+\renewcommand{\cftpartfont}{\sffamily\bfseries\color{accent}}
+\renewcommand{\cftpartpagefont}{\sffamily\bfseries\color{accent}}
+\renewcommand{\cftchapfont}{\sffamily}
+\renewcommand{\cftchappagefont}{\sffamily}
+\setlength{\cftbeforepartskip}{10pt}
+\setlength{\cftbeforechapskip}{2.5pt}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+% Running heads
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{}
+\fancyhead[LE]{\sffamily\small\color{muted}\thepage\hspace{1.2em}AI-Assisted Coding with Claude}
+\fancyhead[RO]{\sffamily\small\color{muted}\nouppercase{\leftmark}\hspace{1.2em}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{{\color{rulegray!50}\hrule height\headrulewidth}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\sffamily\small\color{muted}\thepage}\renewcommand{\headrulewidth}{0pt}}
+% Blank pages before openright chapters stay empty
+\makeatletter
+\renewcommand{\cleardoublepage}{\clearpage\if@twoside\ifodd\c@page\else\hbox{}\thispagestyle{empty}\newpage\fi\fi}
+\makeatother
+\usepackage[hidelinks,pdftitle={AI-Assisted Coding with Claude},pdfauthor={Ronald Allan V. Tomimbang}]{hyperref}
+\usepackage{bookmark}

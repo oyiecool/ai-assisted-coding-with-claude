@@ -1,0 +1,20 @@
+Goal: Let users export any report they can view, as CSV or XLSX.
+
+Context: Reports are built in src/reports/service.py (see build_report).
+Permissions are enforced in src/auth/policies.py. Email uses
+src/notify/mailer.py. Background jobs use the existing Celery setup.
+
+Constraints:
+- Reuse build_report so permissions are identical to the screen.
+- Max 200,000 rows; return a 413 with a clear message above that.
+- Under 10 MB: stream directly. Over 10 MB: background job, upload to
+  the exports bucket, email a signed link valid 24h.
+- Dates in the user's time zone (user.tz). Use openpyxl for XLSX
+  (already a dependency). No new dependencies.
+- Guard against CSV injection: prefix cells starting with =, +, -, @.
+
+Done when: unit tests for both formats, the size threshold, the row
+limit, permissions and CSV injection; an integration test for the
+emailed path with a fake mailer; make check passes.
+
+Process: Propose a plan with file list and test list. Wait for approval.

@@ -1,0 +1,6 @@
+monorepo/
+├── CLAUDE.md                 # org rules, repo map, shared tooling
+├── services/
+│   ├── billing/CLAUDE.md     # billing team: Go 1.23, make test-billing
+│   └── search/CLAUDE.md      # search team: Python 3.12, uv run pytest
+└── web/CLAUDE.md             # front-end team: pnpm, Playwright

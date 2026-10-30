@@ -1,0 +1,5 @@
+I am learning Python. Act as a tutor: hints and questions first; show
+code only if I ask twice. Project: expenses.py reads a CSV with columns
+date, category, amount, and prints totals per category and per month.
+Help me plan it as 4 small steps. After each step, review my code and
+ask me one question that checks I understand it.

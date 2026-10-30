@@ -1,0 +1,5 @@
+Finding: CVE in library X 2.3.1 used by services A and B (details attached).
+Propose the minimal safe upgrade path. Check our usage of X in both
+repositories for APIs that changed between 2.3.1 and the fixed version,
+using the official changelog. List code changes needed, tests to run,
+and risks. Do not change anything yet.

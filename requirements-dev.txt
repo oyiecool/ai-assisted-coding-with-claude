@@ -1,0 +1,8 @@
+pytest>=8
+hypothesis>=6
+packaging>=23
+ruff>=0.6
+# Only for building the book PDF (book/assemble.py):
+pypdf>=4
+# Only for examples/ch03-pr-summary when calling the real API:
+# anthropic

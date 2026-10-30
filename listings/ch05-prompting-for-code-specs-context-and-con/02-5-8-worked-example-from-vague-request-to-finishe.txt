@@ -1,0 +1,4 @@
+We need report export. Before any code, act as a senior engineer
+interviewing the product owner. List the questions you would ask,
+grouped by: formats, data volume, permissions, performance, delivery,
+and failure handling.

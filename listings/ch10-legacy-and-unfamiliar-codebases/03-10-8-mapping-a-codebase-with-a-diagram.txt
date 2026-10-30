@@ -1,0 +1,4 @@
+Analyse imports in src/. Produce a Mermaid flowchart of modules and
+their dependencies, grouped by package. Mark cycles in red. List any
+module imported by more than ten others. Base everything on the code,
+and cite the files for each edge you are unsure about.

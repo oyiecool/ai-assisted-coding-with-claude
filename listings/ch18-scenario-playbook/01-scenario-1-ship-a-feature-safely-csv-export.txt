@@ -1,0 +1,12 @@
+Goal: Add GET /reports/{id}/export.csv for users who can view the report.
+Context: Report rows come from build_report() in src/reports/service.py.
+Follow the response pattern in src/reports/views.py.
+Constraints:
+- Reuse build_report so permissions match the on-screen report exactly.
+- Stream rows; never hold the whole report in memory.
+- Use the csv module. Neutralise CSV injection: prefix any cell that
+  starts with =, +, -, @, tab or carriage return with a single quote.
+- No new dependencies.
+Done when: tests cover permissions, injection cases and a 100,000-row
+export; make check is green.
+Process: Propose a plan and wait for my approval.

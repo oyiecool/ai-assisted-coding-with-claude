@@ -1,0 +1,20 @@
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=rulegray, line width=0.7pt, rounded corners=3pt, minimum width=3.9cm, minimum height=1.25cm, align=center, font=\sffamily\small},
+  hot/.style={box, draw=accent, line width=1.4pt, fill=accentlight},
+  arr/.style={-{Stealth[length=2.2mm]}, draw=rulegray, line width=0.8pt},
+  lab/.style={font=\sffamily\footnotesize, text=muted}]
+\node[box] (goal) at (0,0) {\textbf{Your goal}\\[1pt]{\footnotesize\color{muted}brief and constraints}};
+\node[hot] (model) at (5.6,0) {\textbf{Model decides}\\[1pt]{\footnotesize\color{muted}plans the next step}};
+\node[box] (tool) at (11.2,0) {\textbf{Tool runs}\\[1pt]{\footnotesize\color{muted}read, edit, run tests}};
+\node[box] (result) at (11.2,-3) {\textbf{Result returns}\\[1pt]{\footnotesize\color{muted}output becomes context}};
+\node[box] (done) at (0,-3) {\textbf{Done or stopped}\\[1pt]{\footnotesize\color{muted}you review the diff}};
+\draw[arr] (goal) -- (model);
+\draw[arr] (model) -- node[lab, above=7mm]{permission check} (tool);
+\draw[arr] (tool) -- (result);
+\draw[arr] (result.west) -| node[lab, above, pos=0.25]{loop until done} ($(model.south)+(0.4,0)$);
+\draw[arr] ($(model.south)+(-0.4,0)$) |- node[lab, above, pos=0.75]{goal met} (done.east);
+\end{tikzpicture}
+\caption{The agent loop: decide, act, observe, repeat.}
+\end{figure}

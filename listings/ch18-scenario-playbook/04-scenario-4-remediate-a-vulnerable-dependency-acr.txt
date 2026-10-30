@@ -1,0 +1,7 @@
+Attached: pip-audit JSON for services billing, search and portal.
+1. Group findings by package. For each package, give the lowest
+   version that fixes ALL its findings (not the latest version).
+2. For each service, list the upgrades needed and check our code for
+   APIs that changed between the installed and target versions, using
+   the official changelog. Cite the changelog entries.
+3. Propose one branch per service. Do not change anything yet.

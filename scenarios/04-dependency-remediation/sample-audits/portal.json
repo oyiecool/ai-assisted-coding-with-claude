@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    {"name": "Jinja2", "version": "3.1.2", "vulns": [
+      {"id": "GHSA-h5c8-rqwp-cp95", "aliases": ["CVE-2024-22195"], "fix_versions": ["3.1.3"], "description": "xmlattr filter accepts keys with spaces."},
+      {"id": "GHSA-h75v-3vvj-5mfj", "aliases": ["CVE-2024-34064"], "fix_versions": ["3.1.4"], "description": "xmlattr filter accepts keys with other characters."}
+    ]},
+    {"name": "example-legacy-xml", "version": "0.9.1", "vulns": [
+      {"id": "PYSEC-0000-EXAMPLE", "aliases": [], "fix_versions": [], "description": "Illustrative finding with no published fix."}
+    ]}
+  ],
+  "fixes": []
+}

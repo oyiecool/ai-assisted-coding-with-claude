@@ -1,0 +1,3 @@
+Read src/billing/ and tests/billing/. Propose a plan to support
+multi-currency invoices. List: files to change, data-model changes,
+migration steps, tests to add, and risks. Do not edit anything yet.

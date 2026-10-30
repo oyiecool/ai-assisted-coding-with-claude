@@ -1,0 +1,8 @@
+Goal: Accessible date-range picker for the reports page.
+Context: React 19, TypeScript strict, our component library in
+src/ui/ (see src/ui/Select.tsx for patterns). Tests with Vitest and
+Testing Library; e2e with Playwright.
+Constraints: Keyboard operable, screen-reader labels, WCAG 2.2 AA
+contrast, no new dependencies, dates in the user's locale.
+Done when: Unit tests for keyboard navigation and invalid ranges, a
+Playwright test on the reports page, axe accessibility check clean.

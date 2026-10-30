@@ -1,0 +1,17 @@
+Goal: Add rate limiting to POST /login so brute-force attempts are slowed.
+We have had credential-stuffing incidents.
+
+Context: Flask app in src/app/. Auth routes are in src/app/auth.py.
+Redis is already available via src/app/cache.py.
+
+Constraints:
+- Limit by client IP and by username: 5 attempts per 15 minutes each.
+- Return HTTP 429 with a Retry-After header.
+- Do not add new dependencies.
+- Do not log passwords or full usernames.
+
+Done when:
+- New tests in tests/auth/test_rate_limit.py cover both limits and reset.
+- uv run pytest -q, ruff and mypy all pass.
+
+Process: Read the relevant files, then propose a plan and wait for my OK.

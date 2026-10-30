@@ -1,0 +1,6 @@
+Port scripts/cleanup_tmp.sh to Python 3.12 (standard library only) as
+cleanup_tmp.py with the same CLI: DIR, --days N, --dry-run.
+Behaviour must be identical. First, write a differential test that
+builds a temporary tree (old/new files, nested dirs, names with spaces,
+a symlink), runs BOTH scripts in --dry-run, and compares the sorted
+list of files each would delete. Then implement until it passes.

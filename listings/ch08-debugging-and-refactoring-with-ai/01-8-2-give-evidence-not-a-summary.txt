@@ -1,0 +1,6 @@
+Since this morning's deploy, 3% of logins return HTTP 500.
+Stack trace attached. It only happens for users created before 2022.
+Relevant code: src/auth/session.py, src/models/user.py.
+Recent commits: git log --since=yesterday.
+List 3 hypotheses ranked by likelihood, the evidence for each, and
+the quickest check that would confirm or rule it out. Do not fix yet.

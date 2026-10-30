@@ -1,0 +1,3 @@
+Review this diff against docs/review.md. Focus on authorisation, input
+bounds and result ordering. Report only real issues with file:line,
+severity and a failing test that would demonstrate each one.

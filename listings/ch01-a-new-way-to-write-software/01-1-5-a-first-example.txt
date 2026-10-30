@@ -1,0 +1,7 @@
+Write a Python 3.11 script that compresses .log files older than 30 days
+in a directory given as a CLI argument. Requirements:
+- use only the standard library
+- skip files that are already .gz
+- dry-run flag that only prints what would happen
+- log each action; exit non-zero if any file fails
+Ask me anything that is ambiguous before writing code.

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run pytest *)",
+      "Bash(uv run ruff *)",
+      "Bash(uv run mypy *)",
+      "Bash(git diff *)",
+      "Bash(git status)"
+    ],
+    "deny": [
+      "Read(./.env*)",
+      "Bash(rm -rf *)",
+      "Bash(git push *)",
+      "Bash(curl *)"
+    ]
+  }
+}

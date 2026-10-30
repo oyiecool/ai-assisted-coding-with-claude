@@ -1,0 +1,37 @@
+# ai-review.yml — read-only AI review of pull requests (Chapter 7, 7.13;
+# Chapter 18, scenario 10).
+#
+# This is a TEMPLATE, kept outside .github/workflows so it does not run in
+# this repository. To use it, copy it to .github/workflows/ai-review.yml in
+# your repository and add an ANTHROPIC_API_KEY secret.
+#
+# Sketch: verify the Claude Code CLI flags (-p, --permission-mode,
+# --allowedTools) against the current documentation, or use Anthropic's
+# official GitHub Actions integration instead.
+name: ai-review
+on: pull_request
+permissions:
+  contents: read
+  pull-requests: write          # only to post the comment
+jobs:
+  review:
+    # Untrusted fork PRs are a prompt-injection vehicle (section 11.9).
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Run review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          git diff origin/${{ github.base_ref }}...HEAD > pr.diff
+          claude -p "Review pr.diff against CLAUDE.md and docs/review.md.
+            Report real issues only, with file:line, severity and fix." \
+            --permission-mode plan \
+            --allowedTools "Read,Grep,Glob" > review.md
+      - name: Post comment
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh pr comment ${{ github.event.number }} --body-file review.md

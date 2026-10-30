@@ -1,0 +1,4 @@
+Review this diff as a strict senior engineer on this team. Check it
+against CLAUDE.md and the checklist in docs/review.md. Report only
+real issues, each with file:line, severity and a suggested fix.
+Say explicitly if you found nothing serious.

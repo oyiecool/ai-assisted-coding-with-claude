@@ -1,0 +1,12 @@
+{
+  "dependencies": [
+    {"name": "requests", "version": "2.31.0", "vulns": [
+      {"id": "GHSA-9wx4-h78v-vm56", "aliases": ["CVE-2024-35195"], "fix_versions": ["2.32.0"], "description": "Session verify=False persists for the connection pool."}
+    ]},
+    {"name": "urllib3", "version": "1.26.17", "vulns": [
+      {"id": "GHSA-g4mx-q9vg-27p4", "aliases": ["CVE-2023-45803"], "fix_versions": ["1.26.18", "2.0.7"], "description": "Request body not stripped on 303 redirect."},
+      {"id": "GHSA-34jh-p97f-mpxf", "aliases": ["CVE-2024-37891"], "fix_versions": ["1.26.19", "2.2.2"], "description": "Proxy-Authorization header kept on cross-origin redirects."}
+    ]}
+  ],
+  "fixes": []
+}

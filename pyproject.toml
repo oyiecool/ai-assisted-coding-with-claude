@@ -1,0 +1,17 @@
+[project]
+name = "ai-assisted-coding-with-claude"
+version = "1.0.0"
+description = "Companion code for the book AI-Assisted Coding with Claude"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["examples", "scenarios"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["listings", "book/build"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
